@@ -3,7 +3,7 @@ import Card from "../../../node_modules/react-bootstrap/Card";
 import Button from "../../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
-const Itemquantity = (props) => {
+const ItemCount = (props) => {
   const { stock, initial, onAdd } = props;
 
   const [quantity, setquantity] = useState(initial);
@@ -43,4 +43,4 @@ const Itemquantity = (props) => {
   );
 };
 
-export default Itemquantity;
+export default ItemCount;
