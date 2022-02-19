@@ -25,5 +25,3 @@ const Item = ({ product }) => {
 };
 
 export default Item;
-
-// style={{ width: "18rem" }}
