@@ -32,7 +32,14 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.spinner-grow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%)
 }

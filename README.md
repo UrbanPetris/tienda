@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Tienda Argentina 360
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Repositorio de curso React (2495) - Coderhouse
 
-## Available Scripts
+Este repositorio contiene todos los archivos necesarios para clonar el proyecto final del curso React (2495) de Coderhouse. El mismo consiste en todos los archivos html, css y javascript utilizados en la creación de la aplicación web de la tienda Argentina 360 la cual consiste en una única página (index.html). A su vez se listan las dependencias a instalarse para emular el desarrollo en un proyecto de Node.
 
-In the project directory, you can run:
+## Acerca de la aplicación
 
-### `npm start`
+La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado "Argentina 360". En el mismo se pueden visualizar distintos tipos de productos turísticos filtrando por varias categorías y obtener luego detalles de una excursión, navegación o trekking en particular.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Contenidos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Barra de navegación con brand, carrito y apertura de menún off-canvas.
+- Contenedor con tarjetas que simulan la oferta turística
+- Contenedor con tarjeta que simula el detalle de un producto específico
 
-### `npm test`
+## Herramientas empleadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La aplicación además de React 17.0.2 utiliza las siguientes tecnologías y herramientas de uso libre:
 
-### `npm run build`
+- [React-Bootstrap] - front-end framework implementado con componentes de React. Permite un rápido enmaquetado y diseño adaptable a dispositivos móbiles. El hecho de que sea a través de componentes hace más fácil el mantenimiento y reutilización del código.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalación
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Sírvase clonar el repositorio usando git bash o cualquier terminal que permite usar git. Escriba en ella:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+$git clone https://github.com/UrbanPetris/tienda.git
+```
 
-### `npm run eject`
+Para más información dirígase a la documentación oficial de Github [aquí](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Organización del proyecto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Si ha hecho una clonación existosa del repositorio encontrará en la carpeta del directorio el siguiente archivo:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- package.json (metadatos del project en Node, incluyendo las dependencias a instalar)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Y un sistema de carpetas como el siguiente:
 
-## Learn More
+- public (donde se aloja la página del sitio en index.html y una carpeta /img con imágenes)
+- src (donde se alojan el código js de la aplicación y la carpeta /components con los respectivos códigos en js y estilos en css para los componentes)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licencia
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+MIT
 
-### Code Splitting
+**Todo el material audiovisual de este sitio ha sido obtenido de la web.**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[react-bootstrap]: https://react-bootstrap.github.io/

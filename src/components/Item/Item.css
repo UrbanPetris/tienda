@@ -5,5 +5,18 @@
 .card {
     max-width: 408px;
     margin: 0 auto;
+}
 
+.itemDetail {
+    /* transition: all 0.5s; */
+    color: green;
+    text-decoration: none
+}
+
+.itemDetail:hover {
+    font-weight: 800;
+    color: green;
+
+    transform: scale(0.9);
+    text-decoration: none
 }

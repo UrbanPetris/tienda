@@ -6,12 +6,12 @@ import "./ItemDetail.css";
 const ItemDetail = ({ product }) => {
   return (
     <Row style={{ rowGap: 10 }}>
-      <Col md={6} xxl={4}>
+      <Col md={6} xxl={4} className="pt-4">
         <Card>
           <Card.Img variant="top" src={product.img} alt={product.name} />
           <Card.Body>
             <Card.Title>{product.name}</Card.Title>
-            <Card.Text>Tipo de salida: {product.category}</Card.Text>
+            <Card.Text>Tipo de salida: {product.categoryDescription}</Card.Text>
             <Card.Text>Detalle: {product.description}</Card.Text>
             <Card.Text>Precio: {product.price}</Card.Text>
           </Card.Body>
