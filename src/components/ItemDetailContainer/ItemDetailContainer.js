@@ -27,7 +27,7 @@ const ItemDetailContainer = () => {
       {loading && product ? (
         <Spinner animation="grow" />
       ) : (
-        <ItemDetail product={product}></ItemDetail>
+        <ItemDetail {...product}></ItemDetail>
       )}
     </Container>
   );
