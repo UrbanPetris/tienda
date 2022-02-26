@@ -9,6 +9,15 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const { productId } = useParams();
   const [loading, setLoading] = useState(true);
+  const [counter, setCounter] = useState("button");
+
+  const handleCount = () => {
+    if (counter === "button") {
+      setCounter("input");
+    } else {
+      setCounter("button");
+    }
+  };
 
   useEffect(() => {
     //este product está dentro del scope de la callback de useEffects
@@ -24,10 +33,11 @@ const ItemDetailContainer = () => {
 
   return (
     <Container>
+      <button onClick={handleCount}>Cambiar</button>
       {loading && product ? (
         <Spinner animation="grow" />
       ) : (
-        <ItemDetail product={product}></ItemDetail>
+        <ItemDetail product={product} inputType={counter}></ItemDetail>
       )}
     </Container>
   );

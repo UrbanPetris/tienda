@@ -71,7 +71,7 @@ export const getProducts = () => {
 
 export const getProduct = (productId) => {
   return new Promise((resolve) => {
-    const prod = products.find((p) => p.id === parseInt(productId));
+    const prod = products.find((p) => p.id === +productId);
     setTimeout(() => {
       resolve(prod);
     }, 2000);
@@ -79,6 +79,7 @@ export const getProduct = (productId) => {
 };
 
 export const getByCategory = (categoryId) => {
+  if (!categoryId) return getProducts(); //si categoryId es undefined
   return new Promise((resolve) => {
     const prodsFiltered = products.filter((p) => p.category === categoryId);
     setTimeout(() => {
