@@ -20,10 +20,13 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const sumQuantity = (id, quantity) => {
-    setCart(
-      [...cart],
-      cart.map((product) => product.id === id && (product.quantity += quantity))
-    );
+    // setCart(
+    //   [...cart],
+    //   cart.map((product) => product.id === id && (product.quantity += quantity))
+    // );
+
+    const copia = [...cart];
+    copia.map((product) => product.id === id && (product.quantity += quantity)); //consultar ACÁ!!!!
   };
 
   const clearCart = () => {
