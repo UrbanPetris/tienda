@@ -15,8 +15,11 @@ const NavBar = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar className="navbar px-5" variant="dark" expand={false}>
-      <Container fluid>
+    <Navbar className="navbar px-sm-5 px-1" variant="dark" expand={false}>
+      <Container
+        fluid
+        className="justify-content-around justify-content-sm-between"
+      >
         <Navbar.Toggle aria-controls="tiendaNavbar" onClick={handleShow} />
         <Navbar.Offcanvas
           id="tiendaNavbar"
@@ -69,17 +72,13 @@ const NavBar = () => {
               >
                 Trekking
               </NavLink>
-              {/* <Nav.Link href="#">Contacto</Nav.Link>
-              <Nav.Link href="#">
-                {" "}
-                <Button variant="light">Login</Button>
-              </Nav.Link> */}
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         <Navbar.Brand href="#">
           <NavLink to={"/"}>Argentina 360</NavLink>
         </Navbar.Brand>
+
         <CartWidget />
       </Container>
     </Navbar>

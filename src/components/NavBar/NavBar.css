@@ -24,3 +24,9 @@
     background-color: green;
     width: 100%;
 }
+
+@media (max-width: 400px) {
+    .navbar-toggler {
+        font-size: 0.75rem !important
+    }
+}

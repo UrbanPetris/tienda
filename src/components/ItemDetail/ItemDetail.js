@@ -8,8 +8,6 @@ import { CartContext } from "../../context/CartContext";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ product }) => {
-  //agregar id
-
   const [quantitytobuy, setQuantitytobuy] = useState(0);
   const { addToCart } = useContext(CartContext);
 

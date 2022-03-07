@@ -2,8 +2,9 @@ import Spinner from "../../../node_modules/react-bootstrap/Spinner/";
 import Container from "../../../node_modules/react-bootstrap/Container/";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getProduct } from "../../asyncmock.js";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { doc, getDoc } from "firebase/firestore";
+import { firestoreDb } from "../../services/firebase/firebase";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
@@ -11,12 +12,18 @@ const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    //este product está dentro del scope de la callback de useEffects
-    //el useEffect se ejecuta después de que se renderice el componente con el return
-    getProduct(productId)
-      .then((product) => {
+    setLoading(true); //cada vez que cambia de estado el productId se vuelve a ejecutar este setLoading(true) para simular el loading del componente
+
+    const docRef = doc(firestoreDb, "products", productId);
+
+    getDoc(docRef)
+      .then((doc) => {
+        const product = { id: doc.id, ...doc.data() };
         setProduct(product);
-      }, [])
+      })
+      .catch((error) => {
+        console.log("Error getting document:", error);
+      })
       .finally(() => {
         setLoading(false);
       });

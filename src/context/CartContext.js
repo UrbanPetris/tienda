@@ -8,8 +8,6 @@ export const CartContextProvider = ({ children }) => {
   const addToCart = (item, quantity) => {
     if (isInCart(item.id)) {
       sumQuantity(item.id, quantity);
-      //   removeProduct(item.id);
-      //   clearCart();
     } else {
       setCart([...cart, { ...item, quantity }]);
     }
@@ -34,10 +32,30 @@ export const CartContextProvider = ({ children }) => {
     setCart(cart.filter((product) => product.id !== id));
   };
 
-  console.log(cart);
+  const getQuantity = () => {
+    return cart.reduce(
+      (accumulator, current) => accumulator + Number(current["quantity"]),
+      0
+    );
+  };
+
+  const getTotal = () => {
+    let totalToPay = 0;
+    cart.forEach((product) => (totalToPay += product.quantity * product.price));
+    return totalToPay;
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        getQuantity,
+        clearCart,
+        removeProduct,
+        getTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
