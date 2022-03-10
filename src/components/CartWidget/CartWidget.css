@@ -1,10 +1,3 @@
-/* .cartWidgetCounter {
-    color: white;
-    font-size: 20px;
-    text-decoration: none
-} */
-
-
 .cartWidgetCounter {
     float: right;
     text-align: center;
@@ -16,7 +9,7 @@
     height: 20px;
     line-height: 20px;
     font-size: 0.8rem;
-    position: relative;
-    left: 20px;
-    top: -10px
+    position: absolute;
+    left: 19px;
+    top: -21px
 }

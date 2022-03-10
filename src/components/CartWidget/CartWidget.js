@@ -2,10 +2,13 @@ import { Cart } from "react-bootstrap-icons";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
+import CartNotification from "../CartNotification/CartNotification";
+import { useCartNotificationServices } from "../../services/notification/CartNotificationServices";
 import "./CartWidget.css";
 
 const CartWidget = () => {
   const { getQuantity } = useContext(CartContext);
+  const { message } = useCartNotificationServices;
 
   const cartWidgetContainer = {
     display: "flex",
@@ -15,6 +18,7 @@ const CartWidget = () => {
     alignItems: "center",
     color: "green",
     textDecoration: "none",
+    position: "relative",
   };
 
   const cartIcon = {
@@ -30,20 +34,21 @@ const CartWidget = () => {
     borderRadius: "50%",
     backgroundColor: "#9ed699",
     boxShadow: "0px 0px 9px 3px #3e533c",
-    color: "#fff",
+    color: "white",
     width: 20,
     height: 20,
     lineHeight: 20,
     fontSize: "1rem",
-    position: "relative",
-    left: 20,
-    top: -10,
+    position: "absolute",
+    left: 19,
+    top: -21,
   };
 
   return (
     <Link to={"/Cart"} style={cartWidgetContainer}>
       <Cart style={cartIcon} />
       <div className="cartWidgetCounter">{getQuantity()}</div>
+      <CartNotification message={message} />
     </Link>
   );
 };
