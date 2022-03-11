@@ -2,7 +2,6 @@ import "./NavBar.css";
 import Container from "../../../node_modules/react-bootstrap/Container/";
 import Navbar from "../../../node_modules/react-bootstrap/Navbar/";
 import Nav from "../../../node_modules/react-bootstrap/Nav/";
-import Button from "../../../node_modules/react-bootstrap/Button/";
 import Offcanvas from "../../../node_modules/react-bootstrap/Offcanvas/";
 import CartWidget from "../CartWidget/CartWidget";
 import { NavLink } from "react-router-dom";
@@ -10,7 +9,6 @@ import { useState } from "react";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -76,7 +74,12 @@ const NavBar = () => {
           </Offcanvas.Body>
         </Navbar.Offcanvas>
         <Navbar.Brand href="#">
-          <NavLink to={"/"}>Argentina 360</NavLink>
+          <NavLink
+            to={"/"}
+            style={{ fontSize: 27, fontFamily: "Brush Script MT" }}
+          >
+            Argentina 360
+          </NavLink>
         </Navbar.Brand>
 
         <CartWidget />

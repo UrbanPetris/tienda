@@ -29,12 +29,24 @@ const ItemDetailContainer = () => {
       });
   }, [productId]);
 
+  const estiloContainer = {
+    // minHeight: "92vh",
+    // display: "flex",
+    // flexDirection: "column",
+  };
+
   return (
-    <Container>
+    <Container fluid style={estiloContainer}>
       {loading && product ? (
         <Spinner animation="grow" />
       ) : (
-        <ItemDetail product={product}></ItemDetail>
+        <ItemDetail
+          product={product}
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        ></ItemDetail>
       )}
     </Container>
   );

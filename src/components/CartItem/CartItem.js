@@ -1,5 +1,6 @@
 import { X } from "react-bootstrap-icons";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import "./CartItem.css";
 import { CartContext } from "../../context/CartContext";
 import { Col, Row } from "../../../node_modules/react-bootstrap/";
@@ -17,10 +18,12 @@ const CartItem = ({ product }) => {
           onClick={() => removeProduct(product.id)}
         ></X>
       </Col>
-      <Col md={3} className="cartItemImage">
-        <img src={product.img} alt={product.name} />
+      <Col md={4} className="cartItemImage">
+        <Link to={`/item/${product.id}`} title="Ir al producto">
+          <img src={product.img} alt={product.name} />
+        </Link>
       </Col>
-      <Col md={7} className="details pt-3 pt-md">
+      <Col md={6} className="details pt-3 pt-md">
         <div>{product.name}</div>
         <div>
           {product.quantity} x ${product.price}

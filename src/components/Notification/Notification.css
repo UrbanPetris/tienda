@@ -1,0 +1,34 @@
+.toast {
+    position: absolute;
+    top: 45.5px;
+    right: -36px;
+    max-width: 350px !important;
+    z-index: 9999;
+}
+
+.toast-item {
+    /* top: 45.5px;
+    right: -40px; */
+}
+
+.toast-order {
+    max-width: 420px !important;
+    width: 420px !important;
+}
+
+@media (max-Width: 420px) {
+    .toast-order {
+        max-width: 350px !important;
+        width: 350px !important;
+    }
+}
+
+.toast-header,
+.toast-body {
+    cursor: default;
+    color: black
+}
+
+.toast-header {
+    justify-content: space-between;
+}

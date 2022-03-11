@@ -1,15 +1,29 @@
 import { createContext, useState } from "react";
+import { useNotificationServices } from "../services/notification/NotificationServices";
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+  const { setNotification, setMessageWidth, setMessageBackground } =
+    useNotificationServices();
 
   const addToCart = (item, quantity) => {
+    setMessageWidth("item");
+    setMessageBackground("light");
     if (isInCart(item.id)) {
       sumQuantity(item.id, quantity);
+
+      setNotification(
+        "Se actualizó en el carrito:",
+        `"${item.name}" con ${quantity} unidad/es`
+      );
     } else {
       setCart([...cart, { ...item, quantity }]);
+      setNotification(
+        "Se agregó al carrito...",
+        `"${item.name}" (x${quantity})`
+      );
     }
   };
 
@@ -20,7 +34,7 @@ export const CartContextProvider = ({ children }) => {
   const sumQuantity = (id, quantity) => {
     setCart(
       [...cart],
-      cart.map((product) => product.id === id && (product.quantity += quantity))
+      cart.map((product) => product.id === id && (product.quantity = quantity))
     );
   };
 
