@@ -31,7 +31,7 @@ const Notification = () => {
     <Toast
       {...config}
       show={showNotification}
-      onClose={(e) => {
+      onClose={() => {
         setShowNotification(!showNotification);
       }}
       delay={8000}

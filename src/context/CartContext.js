@@ -46,6 +46,12 @@ export const CartContextProvider = ({ children }) => {
     setCart(cart.filter((product) => product.id !== id));
   };
 
+  const removeProducts = (productstoremove) => {
+    setCart(
+      cart.filter((ct) => productstoremove.every((pr) => pr.id !== ct.id))
+    );
+  };
+
   const getQuantity = () => {
     return cart.reduce(
       (accumulator, current) => accumulator + Number(current["quantity"]),
@@ -66,8 +72,9 @@ export const CartContextProvider = ({ children }) => {
         addToCart,
         getQuantity,
         clearCart,
-        removeProduct,
         getTotal,
+        removeProducts,
+        removeProduct,
       }}
     >
       {children}

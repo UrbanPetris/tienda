@@ -13,7 +13,12 @@ const NavBar = () => {
   const handleShow = () => setShow(true);
 
   return (
-    <Navbar className="navbar px-sm-5 px-1" variant="dark" expand={false}>
+    <Navbar
+      sticky="top"
+      className="navbar px-sm-5 px-1"
+      variant="dark"
+      expand={false}
+    >
       <Container
         fluid
         className="justify-content-around justify-content-sm-between"

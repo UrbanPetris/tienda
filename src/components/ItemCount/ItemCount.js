@@ -15,9 +15,9 @@ const ItemCount = (props) => {
   };
 
   const increment = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1);
-    }
+    // if (quantity < stock) {
+    setQuantity(quantity + 1);
+    // }
   };
 
   return (
