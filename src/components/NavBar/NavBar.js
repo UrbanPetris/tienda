@@ -75,6 +75,15 @@ const NavBar = () => {
               >
                 Trekking
               </NavLink>
+              <NavLink
+                onClick={handleClose}
+                to={"/contactform"}
+                className={
+                  ({ isActive }) => (isActive ? "ActiveOption" : "Option") //cambiar
+                }
+              >
+                Datos de Contacto
+              </NavLink>
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

@@ -1,11 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useContactForm } from "../../context/ContactFormContext";
 import { useNotificationServices } from "../../services/notification/NotificationServices";
 import { Container, Row, Col } from "../../../node_modules/react-bootstrap/";
 import Button from "../../../node_modules/react-bootstrap/Button";
 import { CartXFill, CartCheck, EmojiSunglasses } from "react-bootstrap-icons";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import {
   Timestamp,
   writeBatch,
@@ -22,119 +23,146 @@ import "./Cart.css";
 const Cart = () => {
   const [processingOrder, setProcessingOrder] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
+  const [contactDataMissing, setContactDataMissing] = useState(false);
   const { cart, clearCart, getTotal, removeProducts } = useContext(CartContext); //Hacer un export useContext en CartContext como está para SetNotification así alivio Webpack
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotificationServices();
+  const { name, lastname, phone, address, comment, contactformvalidated } =
+    useContactForm();
 
-  const [contact, setContact] = useState({
-    //Completar luego la parte del fomurlario de contacto... preferiría hacer un context para los datos de formulario y que éste esté en el menú desplegable. Si el formulario está incompleto se alertará al usuario y se le conducirá a la página respectiva.
-    name: "",
-    phone: "",
-    address: "",
-    comment: "",
-  });
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (contactDataMissing) {
+      return navigate("/contactform");
+    }
+
+    if (orderConfirmed) {
+      return navigate("/");
+    }
+  }, [contactDataMissing, orderConfirmed]);
 
   const confirmOrder = () => {
-    setProcessingOrder(true);
+    if (contactformvalidated) {
+      setProcessingOrder(true);
 
-    const objOrder = {
-      buyer: contact,
-      items: cart,
-      total: getTotal(),
-      date: Timestamp.fromDate(new Date()),
-    };
-    const batch = writeBatch(firestoreDb);
-    const outOfStock = [];
-    const ids = objOrder.items.map((i) => i.id);
+      const contact = {
+        name: name,
+        lastname: lastname,
+        phone: phone,
+        address: address,
+        comment: comment,
+      };
 
-    const processMessage = () => {
-      return new Promise((resolve) => {
-        setMessageBackground("info");
-        setNotification(
-          "Procesando orden...",
-          "En breve le brindaremos los detalles"
-        );
-        setTimeout(() => {
-          resolve();
-        }, 8000);
-      });
-    };
+      const objOrder = {
+        buyer: contact,
+        items: cart,
+        total: getTotal(),
+        date: Timestamp.fromDate(new Date()),
+      };
+      const batch = writeBatch(firestoreDb);
+      const outOfStock = [];
+      const ids = objOrder.items.map((i) => i.id);
 
-    const processOrder = () => {
-      getDocs(
-        query(
-          collection(firestoreDb, "products"),
-          where(documentId(), "in", ids)
-        )
-      )
-        .then((response) => {
-          response.docs.forEach((docSnapshot) => {
-            if (
-              docSnapshot.data().stock >=
-              objOrder.items.find((prod) => prod.id === docSnapshot.id).quantity
-            ) {
-              batch.update(docSnapshot.ref, {
-                stock:
-                  docSnapshot.data().stock -
-                  objOrder.items.find((prod) => prod.id === docSnapshot.id)
-                    .quantity,
-              });
-            } else {
-              outOfStock.push({ id: docSnapshot.id, ...docSnapshot.data() });
-            }
-          });
-        })
-        .then(() => {
-          if (outOfStock.length === 0) {
-            addDoc(collection(firestoreDb, "orders"), objOrder).then(
-              ({ id }) => {
-                batch.commit();
-                setMessageBackground("light");
-                setMessageWidth("order");
-                setNotification(
-                  "La orden se generó exitósamente. ¡Gracias por su compra!",
-                  `Su número de orden es: ${id}`
-                );
-                setOrderConfirmed(true);
-                clearCart();
-              }
-            );
-          } else {
-            const textoProducto =
-              outOfStock.length > 1 ? "Los productos..." : "El producto...";
-            const textoUnidades =
-              outOfStock.length > 1
-                ? "...no poseen las unidades seleccionadas"
-                : "...no posee las unidades seleccionadas";
-
-            setMessageBackground("warning");
-
-            setNotification(
-              "No se pudo proceder con la orden",
-              <div className="toast-body-text">
-                <div>{textoProducto}</div>
-                <div className="toast-body-cartItems">
-                  {" "}
-                  {outOfStock.map((product) => {
-                    return <li key={product.id}>{product.name}</li>;
-                  })}{" "}
-                </div>
-                <div>{textoUnidades}</div>
-              </div>
-            );
-            removeProducts(outOfStock);
-          }
-        })
-        .catch((error) => {
-          setMessageBackground("danger");
-          setNotification("Error generando compra", error);
-        })
-        .finally(() => {
-          setProcessingOrder(false);
+      const processMessage = () => {
+        return new Promise((resolve) => {
+          setMessageBackground("info");
+          setNotification(
+            "Procesando orden...",
+            "En breve le brindaremos los detalles"
+          );
+          setTimeout(() => {
+            resolve();
+          }, 8000);
         });
-    };
+      };
 
-    processMessage().then(processOrder);
+      const processOrder = () => {
+        getDocs(
+          query(
+            collection(firestoreDb, "products"),
+            where(documentId(), "in", ids)
+          )
+        )
+          .then((response) => {
+            response.docs.forEach((docSnapshot) => {
+              if (
+                docSnapshot.data().stock >=
+                objOrder.items.find((prod) => prod.id === docSnapshot.id)
+                  .quantity
+              ) {
+                batch.update(docSnapshot.ref, {
+                  stock:
+                    docSnapshot.data().stock -
+                    objOrder.items.find((prod) => prod.id === docSnapshot.id)
+                      .quantity,
+                });
+              } else {
+                outOfStock.push({ id: docSnapshot.id, ...docSnapshot.data() });
+              }
+            });
+          })
+          .then(() => {
+            if (outOfStock.length === 0) {
+              addDoc(collection(firestoreDb, "orders"), objOrder).then(
+                ({ id }) => {
+                  batch.commit();
+                  setMessageBackground("light");
+                  setMessageWidth("order");
+                  setNotification(
+                    "La orden se generó exitósamente. ¡Gracias por su compra!",
+                    `Su número de orden es: ${id}`
+                  );
+                  setOrderConfirmed(true);
+                  clearCart();
+                }
+              );
+            } else {
+              const textoProducto =
+                outOfStock.length > 1 ? "Los productos..." : "El producto...";
+              const textoUnidades =
+                outOfStock.length > 1
+                  ? "...no poseen las unidades seleccionadas"
+                  : "...no posee las unidades seleccionadas";
+
+              setMessageBackground("warning");
+
+              setNotification(
+                "No se pudo proceder con la orden",
+                <div className="toast-body-text">
+                  <div>{textoProducto}</div>
+                  <div className="toast-body-cartItems">
+                    {" "}
+                    {outOfStock.map((product) => {
+                      return <li key={product.id}>{product.name}</li>;
+                    })}{" "}
+                  </div>
+                  <div>{textoUnidades}</div>
+                </div>
+              );
+              removeProducts(outOfStock);
+            }
+          })
+          .catch((error) => {
+            setMessageBackground("danger");
+            setNotification("Error generando compra", error);
+          })
+          .finally(() => {
+            setProcessingOrder(false);
+          });
+      };
+
+      processMessage().then(processOrder);
+    } else {
+      setMessageBackground("warning");
+      setNotification(
+        "Redireccionando...",
+        "Debe completar los datos de contacto para generar la orden."
+      );
+      setTimeout(() => {
+        setContactDataMissing(true);
+      }, 3000);
+    }
   };
 
   if (cart.length === 0)
@@ -170,7 +198,7 @@ const Cart = () => {
 
   return (
     <>
-      {orderConfirmed && <Navigate to="/" replace={true} />}
+      {/* {orderConfirmed && <Navigate to="/" replace={true} />} */}
       <Container>
         <Row style={{ textAlign: "center", justifyContent: "center" }}>
           <div className="title">Carrito</div>

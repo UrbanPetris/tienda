@@ -6,7 +6,7 @@ export const useNotificationServices = () => {
 };
 
 export const NotificationServicesProvider = ({ children }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState();
   const [messageHeader, setMessageHeader] = useState("");
   const [showNotification, setShowNotification] = useState(false);
   const [messageWidth, setMessageWidth] = useState("item");
