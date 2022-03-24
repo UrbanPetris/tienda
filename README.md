@@ -55,13 +55,17 @@ Y un sistema de carpetas y archivos como el siguiente:
 El backend de la app se apoya en los servicios provistos pro la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
 
 Crear un proyecto con el nombre que desee:
+
 ![crearproyecto](https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject.JPG?raw=true)
 
 No es necesario habilitar Google Analytics:
+
 ![crearproyecto2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject2.JPG?raw=true)
 
 Crear una base de datos en modo productivo:
+
 ![createdatabase](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase.JPG?raw=true)
+
 ![createdatabase2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase2.JPG?raw=true)
 
 Comenzar una nueva colección que deberá llamarse _products_
@@ -70,6 +74,7 @@ Comenzar una nueva colección que deberá llamarse _products_
 Completar los productos con las siguientes fields/keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos. Se recomienda que el primer field/key correspondiente al id se genere automáticamente:
 
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
+
 ![startcollection3](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection3.JPG?raw=true)
 
 PONER ACÁ CÓMO CONFIGURAR CATEGORY
@@ -77,9 +82,13 @@ PONER ACÁ CÓMO CONFIGURAR CATEGORY
 Una vez hecho esto deben configurarse las variables de entorno en un archivo .env que deberá ubicarse en el root de la app. Para ello antes se deberá registrar una app (en este caso, web) al proyecto de Firebase:
 
 ![firebaseapp](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true)
+
 No es necesario configurar hosting:
+
 ![firebaseapp2](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true)
+
 Respecto al software development kit, se indica que es necesario instalar Firebase en npm (ya incluído en las dependencias en package.json) e inicializar Firebase en un archivo javascript. Aquí sólo interesa adaptar la configuración de Firebase en un entorno de variables local:
+
 ![firebaseapp3](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true)
 ![env](https://github.com/UrbanPetris/tienda/blob/master/public/img/env.JPG?raw=true)
 
