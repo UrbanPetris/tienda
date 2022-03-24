@@ -4,13 +4,24 @@ import Navbar from "../../../node_modules/react-bootstrap/Navbar/";
 import Nav from "../../../node_modules/react-bootstrap/Nav/";
 import Offcanvas from "../../../node_modules/react-bootstrap/Offcanvas/";
 import CartWidget from "../CartWidget/CartWidget";
+import { getCategories } from "../../services/firebase/firebase";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NavBar = () => {
   const [show, setShow] = useState(false);
+  const [categories, setCategories] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    getCategories().then((response) => {
+      const categories = response.docs.map((cat) => {
+        return { id: cat.id, ...cat.data() };
+      });
+      setCategories(categories);
+    });
+  }, []);
 
   return (
     <Navbar
@@ -47,34 +58,19 @@ const NavBar = () => {
               >
                 Home
               </NavLink>
-              <NavLink
-                onClick={handleClose}
-                to={"/category/excursion"}
-                className={
-                  ({ isActive }) => (isActive ? "ActiveOption" : "Option") //cambiar
-                }
-              >
-                Excursiones
-              </NavLink>
-              <NavLink
-                onClick={handleClose}
-                to={"/category/navegacion"}
-                className={
-                  ({ isActive }) => (isActive ? "ActiveOption" : "Option") //cambiar
-                }
-              >
-                Navegaciones
-              </NavLink>
 
-              <NavLink
-                onClick={handleClose}
-                to={"/category/trekking"}
-                className={
-                  ({ isActive }) => (isActive ? "ActiveOption" : "Option") //cambiar
-                }
-              >
-                Trekking
-              </NavLink>
+              {categories.map((cat) => (
+                <NavLink
+                  key={cat.id}
+                  to={`/category/${cat.id}`}
+                  className={({ isActive }) =>
+                    isActive ? "ActiveOption" : "Option"
+                  }
+                >
+                  {cat.description}
+                </NavLink>
+              ))}
+
               <NavLink
                 onClick={handleClose}
                 to={"/contactform"}
