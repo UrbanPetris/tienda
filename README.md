@@ -36,15 +36,19 @@ Si ha hecho una clonación existosa del repositorio encontrará en la carpeta de
 
 - package.json (metadatos del project en Node, incluyendo las dependencias a instalar)
 
-Y un sistema de carpetas como el siguiente:
+Y un sistema de carpetas y archivos como el siguiente:
 
 - public:
+
   - index.html
-  - /img
+  - /img (imágenes del proyecto, acá deben alojarse las imágenes de los productos cuyos relative paths deberán actualizarse en backend)
 
-(donde se aloja la página del sitio en index.html y una carpeta /img con imágenes)
-
-- src (donde se alojan el código js de la App, la carpeta /components con los respectivos códigos js/jsx y css para la renderización y funcionalidad de los componentes, la carpeta /services con el código js del backend de Firebase y la carpeta /context con los códigos js/sx que hacen a la configuracion de los distintos contextos necesarios para el funcionamiento de la app)
+- src:
+  - App.js
+  - App.css
+  - /components (js/jsx y css para la renderización y funcionalidad de los componentes de App)
+  - /services (js del backend de Firebase)
+  - /context (js/jsx que hacen a la configuración de los distintos contextos necesarios para el funcionamiento de la app)
 
 ## Organización
 
@@ -63,8 +67,20 @@ Crear una base de datos en modo productivo:
 Comenzar una nueva colección que deberá llamarse _products_
 ![startcollection](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true)
 
-Completar los productos con las siguientes keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos:
+Completar los productos con las siguientes fields/keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos. Se recomienda que el primer field/key correspondiente al id se genere automáticamente:
+
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
+![startcollection3](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection3.JPG?raw=true)
+
+PONER ACÁ CÓMO CONFIGURAR CATEGORY
+
+Una vez hecho esto deben configurarse las variables de entorno en un archivo .env que deberá ubicarse en el root de la app. Para ello antes se deberá registrar una app (en este caso, web) al proyecto de Firebase:
+
+![firebaseapp](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true)
+No es necesario configurar hosting:
+![firebaseapp2](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true)
+Respecto al software development kit, se indica que es necesario instalar Firebase en npm (ya incluído en las dependencias en package.json) e inicializar Firebase en un archivo javascript. Aquí sólo interesa adaptar la configuración de Firebase en un entorno de variables local:
+![firebaseapp3](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true)
 
 ## Licencia
 
