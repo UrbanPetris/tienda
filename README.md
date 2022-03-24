@@ -47,7 +47,7 @@ Comenzar una nueva colección que deberá llamarse _products_
 
 Completar los productos con las siguientes keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos:
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true" width="100" height="100">
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true" width="400">
 
 ## Organización del proyecto
 
