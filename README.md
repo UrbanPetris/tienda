@@ -82,6 +82,7 @@ PONER ACÁ CÓMO CONFIGURAR CATEGORY
 Una vez hecho esto deben configurarse las variables de entorno en un archivo .env que deberá ubicarse en el root de la app. Para ello antes se deberá registrar una app (en este caso, web) al proyecto de Firebase:
 
 ![firebaseapp](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true)
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true" width="500">
 
 No es necesario configurar hosting:
 
