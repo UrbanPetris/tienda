@@ -20,7 +20,7 @@ La aplicación además de React 17.0.2 utiliza las siguientes tecnologías y her
 
 - [React-Bootstrap] - front-end framework implementado con componentes de React. Permite un rápido enmaquetado y diseño adaptable a dispositivos móbiles. El hecho de que sea a través de componentes hace más fácil el mantenimiento y reutilización del código.
 
-## Instalación y configuración
+## Instalación
 
 Sírvase clonar el repositorio usando git bash o cualquier terminal que permite usar git. Escriba en ella:
 
@@ -29,6 +29,24 @@ $git clone https://github.com/UrbanPetris/tienda.git
 ```
 
 Para más información dirígase a la documentación oficial de Github [aquí](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
+
+## Organización del proyecto
+
+Si ha hecho una clonación existosa del repositorio encontrará en la carpeta del directorio el siguiente archivo:
+
+- package.json (metadatos del project en Node, incluyendo las dependencias a instalar)
+
+Y un sistema de carpetas como el siguiente:
+
+- public:
+  - index.html
+  - /img
+
+(donde se aloja la página del sitio en index.html y una carpeta /img con imágenes)
+
+- src (donde se alojan el código js de la App, la carpeta /components con los respectivos códigos js/jsx y css para la renderización y funcionalidad de los componentes, la carpeta /services con el código js del backend de Firebase y la carpeta /context con los códigos js/sx que hacen a la configuracion de los distintos contextos necesarios para el funcionamiento de la app)
+
+## Organización
 
 El backend de la app se apoya en los servicios provistos pro la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
 
@@ -47,22 +65,6 @@ Comenzar una nueva colección que deberá llamarse _products_
 
 Completar los productos con las siguientes keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos:
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
-
-## Organización del proyecto
-
-Si ha hecho una clonación existosa del repositorio encontrará en la carpeta del directorio el siguiente archivo:
-
-- package.json (metadatos del project en Node, incluyendo las dependencias a instalar)
-
-Y un sistema de carpetas como el siguiente:
-
-- public:
-  |_ indext.html
-  |_ /img
-
-(donde se aloja la página del sitio en index.html y una carpeta /img con imágenes)
-
-- src (donde se alojan el código js de la App, la carpeta /components con los respectivos códigos js/jsx y css para la renderización y funcionalidad de los componentes, la carpeta /services con el código js del backend de Firebase y la carpeta /context con los códigos js/sx que hacen a la configuracion de los distintos contextos necesarios para el funcionamiento de la app)
 
 ## Licencia
 
