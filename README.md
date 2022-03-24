@@ -32,14 +32,21 @@ Para más información dirígase a la documentación oficial de Github [aquí](h
 
 El backend de la app se apoya en los servicios provistos pro la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
 
+Crear un proyecto con el nombre que desee:
 ![crearproyecto](https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject.JPG?raw=true)
+
+No es necesario habilitar Google Analytics:
 ![crearproyecto2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject2.JPG?raw=true)
+
+Crear una base de datos en modo productivo:
 ![createdatabase](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase.JPG?raw=true)
 ![createdatabase2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase2.JPG?raw=true)
-![startcollection](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true)
-![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
 
-. Recordar que los nombres de las keys deben respetarse:
+Comenzar una nueva colección que deberá llamarse _products_
+![startcollection](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true)
+
+Completar los productos con las siguientes keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos:
+![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
 
 ## Organización del proyecto
 
