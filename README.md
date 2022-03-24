@@ -30,9 +30,14 @@ $git clone https://github.com/UrbanPetris/tienda.git
 
 Para más información dirígase a la documentación oficial de Github [aquí](https://docs.github.com/es/repositories/creating-and-managing-repositories/cloning-a-repository)
 
-El backend de la app se apoya en los servicios provistos pro la plataforma Firebase por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
+El backend de la app se apoya en los servicios provistos pro la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
 
-![crearproyecto](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![crearproyecto](https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject.JPG?raw=true)
+![crearproyecto2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject2.JPG?raw=true)
+![createdatabase](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase.JPG?raw=true)
+![createdatabase2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase2.JPG?raw=true)
+![startcollection](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true)
+![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
 
 . Recordar que los nombres de las keys deben respetarse:
 
