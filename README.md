@@ -38,6 +38,7 @@ El backend de la app se apoya en los servicios provistos pro la plataforma cloud
 ![createdatabase2](https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase2.JPG?raw=true)
 ![startcollection](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true)
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
+fg
 
 . Recordar que los nombres de las keys deben respetarse:
 
