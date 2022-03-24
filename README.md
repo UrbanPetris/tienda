@@ -47,7 +47,6 @@ Comenzar una nueva colección que deberá llamarse _products_
 
 Completar los productos con las siguientes keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos:
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true" width="400">
 
 ## Organización del proyecto
 
@@ -57,7 +56,12 @@ Si ha hecho una clonación existosa del repositorio encontrará en la carpeta de
 
 Y un sistema de carpetas como el siguiente:
 
-- public (donde se aloja la página del sitio en index.html y una carpeta /img con imágenes)
+- public:
+  |_ indext.html
+  |_ /img
+
+(donde se aloja la página del sitio en index.html y una carpeta /img con imágenes)
+
 - src (donde se alojan el código js de la App, la carpeta /components con los respectivos códigos js/jsx y css para la renderización y funcionalidad de los componentes, la carpeta /services con el código js del backend de Firebase y la carpeta /context con los códigos js/sx que hacen a la configuracion de los distintos contextos necesarios para el funcionamiento de la app)
 
 ## Licencia
