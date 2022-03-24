@@ -13,6 +13,14 @@ export const ContactFormProvider = ({ children }) => {
   const [comment, setComment] = useState("");
   const [contactformvalidated, setContactFormValidated] = useState(false);
 
+  const contact = {
+    name: name,
+    lastname: lastname,
+    phone: phone,
+    address: address,
+    comment: comment,
+  };
+
   return (
     <ContactFormContext.Provider
       value={{
@@ -28,6 +36,7 @@ export const ContactFormProvider = ({ children }) => {
         setComment,
         contactformvalidated,
         setContactFormValidated,
+        contact,
       }}
     >
       {children}
