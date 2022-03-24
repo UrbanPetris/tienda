@@ -74,6 +74,7 @@ Comenzar una nueva colección que deberá llamarse _products_
 Completar los productos con las siguientes fields/keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos. Se recomienda que el primer field/key correspondiente al id se genere automáticamente:
 
 ![startcollection2](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true)
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true" width="500">
 
 ![startcollection3](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection3.JPG?raw=true)
 
@@ -86,14 +87,12 @@ Una vez hecho esto deben configurarse las variables de entorno en un archivo .en
 No es necesario configurar hosting:
 
 ![firebaseapp2](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true)
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true" width="500">
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true" width="400">
 
 Respecto al software development kit, se indica que es necesario instalar Firebase en npm (ya incluído en las dependencias en package.json) e inicializar Firebase en un archivo javascript. Aquí sólo interesa adaptar la configuración de Firebase en un entorno de variables local:
 
-![firebaseapp3](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true)
 <img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true" width="600">
 
-![env](https://github.com/UrbanPetris/tienda/blob/master/public/img/env.JPG?raw=true)
 <img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/env.JPG?raw=true" width="600">
 
 ## Licencia
