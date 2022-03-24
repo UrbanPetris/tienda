@@ -50,9 +50,9 @@ Y un sistema de carpetas y archivos como el siguiente:
   - /services (js del backend de Firebase)
   - /context (js/jsx que hacen a la configuración de los distintos contextos necesarios para el funcionamiento de la app)
 
-## Organización
+## Configuración
 
-El backend de la app se apoya en los servicios provistos pro la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
+El backend de la app se apoya en los servicios provistos por la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
 
 Crear un proyecto con el nombre que desee:
 
