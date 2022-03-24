@@ -6,18 +6,13 @@ import Button from "../../../node_modules/react-bootstrap/Button";
 import { CartXFill, CartCheck, EmojiSunglasses } from "react-bootstrap-icons";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Timestamp } from "firebase/firestore";
 import {
-  Timestamp,
-  writeBatch,
-  getDocs,
-  addDoc,
-  collection,
-  where,
-  query,
-  documentId,
-} from "firebase/firestore";
-import { firestoreDb } from "../../services/firebase/firebase";
+  addOrder,
+  getProductsInOrder,
+  batch,
+} from "../../services/firebase/firebase";
 import "./Cart.css";
 
 const Cart = () => {
@@ -27,8 +22,7 @@ const Cart = () => {
   const { cart, clearCart, getTotal, removeProducts } = useContext(CartContext); //Hacer un export useContext en CartContext como está para SetNotification así alivio Webpack
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotificationServices();
-  const { name, lastname, phone, address, comment, contactformvalidated } =
-    useContactForm();
+  const { contact, contactformvalidated } = useContactForm();
 
   let navigate = useNavigate();
 
@@ -46,21 +40,12 @@ const Cart = () => {
     if (contactformvalidated) {
       setProcessingOrder(true);
 
-      const contact = {
-        name: name,
-        lastname: lastname,
-        phone: phone,
-        address: address,
-        comment: comment,
-      };
-
       const objOrder = {
         buyer: contact,
         items: cart,
         total: getTotal(),
         date: Timestamp.fromDate(new Date()),
       };
-      const batch = writeBatch(firestoreDb);
       const outOfStock = [];
       const ids = objOrder.items.map((i) => i.id);
 
@@ -78,12 +63,7 @@ const Cart = () => {
       };
 
       const processOrder = () => {
-        getDocs(
-          query(
-            collection(firestoreDb, "products"),
-            where(documentId(), "in", ids)
-          )
-        )
+        getProductsInOrder(ids)
           .then((response) => {
             response.docs.forEach((docSnapshot) => {
               if (
@@ -104,19 +84,17 @@ const Cart = () => {
           })
           .then(() => {
             if (outOfStock.length === 0) {
-              addDoc(collection(firestoreDb, "orders"), objOrder).then(
-                ({ id }) => {
-                  batch.commit();
-                  setMessageBackground("light");
-                  setMessageWidth("order");
-                  setNotification(
-                    "La orden se generó exitósamente. ¡Gracias por su compra!",
-                    `Su número de orden es: ${id}`
-                  );
-                  setOrderConfirmed(true);
-                  clearCart();
-                }
-              );
+              addOrder(objOrder).then(({ id }) => {
+                batch.commit();
+                setMessageBackground("light");
+                setMessageWidth("order");
+                setNotification(
+                  "La orden se generó exitósamente. ¡Gracias por su compra!",
+                  `Su número de orden es: ${id}`
+                );
+                setOrderConfirmed(true);
+                clearCart();
+              });
             } else {
               const textoProducto =
                 outOfStock.length > 1 ? "Los productos..." : "El producto...";
@@ -197,45 +175,42 @@ const Cart = () => {
     );
 
   return (
-    <>
-      {/* {orderConfirmed && <Navigate to="/" replace={true} />} */}
-      <Container>
-        <Row style={{ textAlign: "center", justifyContent: "center" }}>
-          <div className="title">Carrito</div>
-          {cart.map((product) => {
-            return <CartItem key={product.id} product={product}></CartItem>;
-          })}
-          <Row className="total justify-content-between justify-content-md-end align-items-center">
-            <Col xs={12} md={4} lg={3} xxl={2} style={{ paddingRight: 30 }}>
-              <Row style={{ rowGap: 10 }}>
-                <Button
-                  disabled={processingOrder}
-                  variant="danger"
-                  onClick={() => clearCart()}
-                >
-                  <CartXFill size={35}></CartXFill>
-                  <span>Cancelar compra</span>
-                </Button>
-                <Button
-                  disabled={processingOrder}
-                  variant="success"
-                  onClick={() => confirmOrder()}
-                >
-                  <CartCheck size={35}></CartCheck>{" "}
-                  <span>
-                    {" "}
-                    {processingOrder ? "Procesando…" : "Confirmar compra"}
-                  </span>
-                </Button>
-              </Row>
-            </Col>
-            <Col xs={12} md={1}>
-              <strong>Total: ${getTotal()}</strong>
-            </Col>
-          </Row>
+    <Container>
+      <Row style={{ textAlign: "center", justifyContent: "center" }}>
+        <div className="title">Carrito</div>
+        {cart.map((product) => {
+          return <CartItem key={product.id} product={product}></CartItem>;
+        })}
+        <Row className="total justify-content-between justify-content-md-end align-items-center">
+          <Col xs={12} md={4} lg={3} xxl={2} style={{ paddingRight: 30 }}>
+            <Row style={{ rowGap: 10 }}>
+              <Button
+                disabled={processingOrder}
+                variant="danger"
+                onClick={() => clearCart()}
+              >
+                <CartXFill size={35}></CartXFill>
+                <span>Cancelar compra</span>
+              </Button>
+              <Button
+                disabled={processingOrder}
+                variant="success"
+                onClick={() => confirmOrder()}
+              >
+                <CartCheck size={35}></CartCheck>{" "}
+                <span>
+                  {" "}
+                  {processingOrder ? "Procesando…" : "Confirmar compra"}
+                </span>
+              </Button>
+            </Row>
+          </Col>
+          <Col xs={12} md={1}>
+            <strong>Total: ${getTotal()}</strong>
+          </Col>
         </Row>
-      </Container>
-    </>
+      </Row>
+    </Container>
   );
 };
 
