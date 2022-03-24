@@ -30,7 +30,7 @@ export const getProducts = (categoryId) => {
     const collectionRef = categoryId
       ? query(
           collection(firestoreDb, "products"),
-          where("category", "==", categoryId)
+          where("categoryId", "==", categoryId)
         )
       : collection(firestoreDb, "products");
 
