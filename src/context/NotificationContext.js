@@ -1,11 +1,11 @@
 import { useState, createContext, useContext } from "react";
 
 const NotificationContext = createContext();
-export const useNotificationServices = () => {
+export const useNotification = () => {
   return useContext(NotificationContext);
 };
 
-export const NotificationServicesProvider = ({ children }) => {
+export const NotificationContextProvider = ({ children }) => {
   const [message, setMessage] = useState();
   const [messageHeader, setMessageHeader] = useState("");
   const [showNotification, setShowNotification] = useState(false);

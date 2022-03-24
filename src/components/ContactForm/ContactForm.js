@@ -1,5 +1,5 @@
 import { useContactForm } from "../../context/ContactFormContext";
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { useNotification } from "../../context/NotificationContext";
 import { useEffect, useState } from "react";
 import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
@@ -22,7 +22,7 @@ const ContactForm = () => {
     setContactFormValidated,
   } = useContactForm();
 
-  const { setNotification, setMessageBackground } = useNotificationServices();
+  const { setNotification, setMessageBackground } = useNotification();
 
   const [toggledisableddatos, setToggleDisabledDatos] = useState(true);
   const [disablesubmit, setDisableSubmit] = useState(true);

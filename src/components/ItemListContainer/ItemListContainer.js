@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 import Spinner from "../../../node_modules/react-bootstrap/Spinner/";
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { useNotification } from "../../context/NotificationContext";
 import { getProducts } from "../../services/firebase/firebase";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]); //tengo que inicializar el estado con un array si no el método de array de map en ItemList se rompe
   const { categoryId } = useParams();
   const [loading, setLoading] = useState(true);
-  const { setNotification, setMessageBackground } = useNotificationServices();
+  const { setNotification, setMessageBackground } = useNotification();
 
   useEffect(() => {
     //este products está dentro del scope de la callback de useEffects

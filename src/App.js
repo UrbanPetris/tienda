@@ -7,13 +7,13 @@ import ContactForm from "./components/ContactForm/ContactForm";
 import Cart from "./components/Cart/Cart";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/CartContext";
-import { NotificationServicesProvider } from "./services/notification/NotificationServices";
+import { NotificationContextProvider } from "./context/NotificationContext";
 import { ContactFormProvider } from "./context/ContactFormContext";
 
 function App() {
   return (
     <div className="App">
-      <NotificationServicesProvider>
+      <NotificationContextProvider>
         <ContactFormProvider>
           <CartContextProvider>
             <BrowserRouter>
@@ -34,7 +34,7 @@ function App() {
             </BrowserRouter>
           </CartContextProvider>
         </ContactFormProvider>
-      </NotificationServicesProvider>
+      </NotificationContextProvider>
     </div>
   );
 }

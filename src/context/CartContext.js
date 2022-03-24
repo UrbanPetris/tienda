@@ -1,12 +1,12 @@
 import { createContext, useState } from "react";
-import { useNotificationServices } from "../services/notification/NotificationServices";
+import { useNotification } from "./NotificationContext";
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const { setNotification, setMessageWidth, setMessageBackground } =
-    useNotificationServices();
+    useNotification();
 
   const addToCart = (item, quantity) => {
     setMessageWidth("item");

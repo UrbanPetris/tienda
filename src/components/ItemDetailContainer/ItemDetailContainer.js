@@ -3,14 +3,14 @@ import Container from "../../../node_modules/react-bootstrap/Container/";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { useNotification } from "../../context/NotificationContext";
 import { getProductById } from "../../services/firebase/firebase";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState([]);
   const { productId } = useParams();
   const [loading, setLoading] = useState(true);
-  const { setNotification, setMessageBackground } = useNotificationServices();
+  const { setNotification, setMessageBackground } = useNotification();
 
   useEffect(() => {
     setLoading(true); //cada vez que cambia de estado el productId se vuelve a ejecutar este setLoading(true) para simular el loading del componente

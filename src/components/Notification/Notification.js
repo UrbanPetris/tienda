@@ -1,4 +1,4 @@
-import { useNotificationServices } from "../../services/notification/NotificationServices";
+import { useNotification } from "../../context/NotificationContext";
 import "./Notification.css";
 import { Toast } from "react-bootstrap";
 
@@ -10,7 +10,7 @@ const Notification = () => {
     setShowNotification,
     messageWidth,
     messageBackground,
-  } = useNotificationServices();
+  } = useNotification();
 
   const handleClickNotification = (e) => {
     e.preventDefault();
