@@ -2,11 +2,11 @@
 
 ## Repositorio de curso React (2495) - Coderhouse
 
-Este repositorio contiene todos los archivos necesarios para clonar el proyecto final del curso React (2495) de Coderhouse. El mismo consiste en todos los archivos html, css y javascript utilizados en la creación de la aplicación web de la tienda Argentina 360 la cual consiste en una única página (index.html). A su vez se listan las dependencias a instalarse para emular el desarrollo en un proyecto de Node.
+Este repositorio contiene todos los archivos necesarios para clonar el proyecto final del curso React (2495) de Coderhouse. El mismo consiste en todos los archivos html, css y javascript utilizados en la creación de la aplicación web de la tienda "Argentina 360". A su vez se listan las dependencias a instalarse para emular el desarrollo en un proyecto de Node.
 
 ## Acerca de la aplicación
 
-La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado "Argentina 360". En el mismo se pueden visualizar distintos tipos de productos turísticos filtrando por varias categorías y obtener luego detalles de una excursión, navegación o trekking en particular.
+La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado "Argentina 360". En el mismo se pueden visualizar distintos tipos de productos turísticos filtrando por varias categorías y obtener luego detalles de alguno en particular.
 
 ## Contenidos
 
@@ -72,13 +72,15 @@ Comenzar una nueva colección que deberá llamarse _products_
 
 <img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true" width="500">
 
-Completar los productos con las siguientes fields/keys (_category_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos. Se recomienda que el primer field/key correspondiente al id se genere automáticamente:
+Completar los productos con las siguientes fields/keys (_categoryId_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos. Se recomienda que el primer field/key correspondiente al id se genere automáticamente:
 
 <img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true" width="500">
 
 ![startcollection3](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection3.JPG?raw=true)
 
-PONER ACÁ CÓMO CONFIGURAR CATEGORY
+El campo _categoryId_ debe contener el id de los documentos de la collection a crear de categories donde la key _description_ será el nombre que se incorporará al navbar:
+
+![startcollection4](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection4.JPG?raw=true)
 
 Una vez hecho esto deben configurarse las variables de entorno en un archivo .env que deberá ubicarse en el root de la app. Para ello antes se deberá registrar una app (en este caso, web) al proyecto de Firebase:
 
