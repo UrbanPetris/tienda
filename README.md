@@ -81,17 +81,20 @@ PONER ACÁ CÓMO CONFIGURAR CATEGORY
 
 Una vez hecho esto deben configurarse las variables de entorno en un archivo .env que deberá ubicarse en el root de la app. Para ello antes se deberá registrar una app (en este caso, web) al proyecto de Firebase:
 
-![firebaseapp](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true)
 <img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true" width="500">
 
 No es necesario configurar hosting:
 
 ![firebaseapp2](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true)
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true" width="500">
 
 Respecto al software development kit, se indica que es necesario instalar Firebase en npm (ya incluído en las dependencias en package.json) e inicializar Firebase en un archivo javascript. Aquí sólo interesa adaptar la configuración de Firebase en un entorno de variables local:
 
 ![firebaseapp3](https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true)
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true" width="500">
+
 ![env](https://github.com/UrbanPetris/tienda/blob/master/public/img/env.JPG?raw=true)
+<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/env.JPG?raw=true" width="500">
 
 ## Licencia
 
