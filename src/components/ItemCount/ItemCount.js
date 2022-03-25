@@ -23,7 +23,7 @@ const ItemCount = (props) => {
   return (
     <>
       <Col>
-        <div className="itemCounterContainer">
+        <div className="item-counter-container">
           <Button variant="outline-success" onClick={decrement}>
             -
           </Button>
