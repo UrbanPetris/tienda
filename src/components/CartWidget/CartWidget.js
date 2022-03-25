@@ -47,7 +47,7 @@ const CartWidget = () => {
       <Cart style={cartIcon} />
       <div
         style={{ visibility: getQuantity() === 0 ? "hidden" : "visible" }}
-        className="cartWidgetCounter"
+        className="cart-widget-counter"
       >
         {getQuantity()}
       </div>
