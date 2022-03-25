@@ -18,7 +18,7 @@ const CartItem = ({ product }) => {
           onClick={() => removeProduct(product.id)}
         ></X>
       </Col>
-      <Col md={4} className="cartItemImage">
+      <Col md={4} className="cart-item-image">
         <Link to={`/item/${product.id}`} title="Ir al producto">
           <img src={product.img} alt={product.name} />
         </Link>
