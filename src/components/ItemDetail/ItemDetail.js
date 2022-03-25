@@ -12,11 +12,11 @@ import Button from "../../../node_modules/react-bootstrap/Button";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ product }) => {
-  const [quantitytobuy, setQuantitytobuy] = useState(0);
+  const [quantityToBuy, setQuantityToBuy] = useState(0);
   const { addToCart } = useContext(CartContext);
 
   const handleAdd = (quantity) => {
-    setQuantitytobuy(quantity);
+    setQuantityToBuy(quantity);
     addToCart(product, quantity);
   };
 
@@ -27,15 +27,15 @@ const ItemDetail = ({ product }) => {
         <h5> {product.name}</h5>
       </Col>
       <Row className="pt-4 align-items-center">
-        <Col lg={6} className="imageColumn">
+        <Col lg={6} className="image-column">
           {" "}
-          <div className="imageContainer">
+          <div className="image-container">
             <img
               style={{ maxWidth: "100%" }}
               src={product.img}
               alt={product.name}
             ></img>
-            <Badge className="tipoExcursion" bg="success">
+            <Badge className="tipo-excursion" bg="success">
               {product.categoryDescription}
             </Badge>
           </div>
@@ -46,13 +46,13 @@ const ItemDetail = ({ product }) => {
             <Card.Text>Precio: ${product.price}</Card.Text>
             <Row style={{ rowGap: 10 }}>
               {" "}
-              {quantitytobuy > 0 ? (
+              {quantityToBuy > 0 ? (
                 <>
                   <Col sm={4}>
                     <Button
                       variant="outline-success"
                       onClick={() => {
-                        setQuantitytobuy(0);
+                        setQuantityToBuy(0);
                       }}
                     >
                       <BiLandscape

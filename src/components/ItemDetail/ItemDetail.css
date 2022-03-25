@@ -1,25 +1,15 @@
-/* .card-img-top {
-    max-height: 250px;
-}
-
-.card {
-    max-width: 408px;
-    margin: 0 auto;
-
-} */
-
 @media (min-width: 1000px) {
-    .imageColumn {
+    .image-column {
         border-Right: groove green;
     }
 }
 
-.imageContainer {
+.imate-container {
     position: relative;
     display: inline-block;
 }
 
-.tipoExcursion {
+.tipo-excursion {
     position: absolute;
     bottom: 10px;
     right: 20px;
