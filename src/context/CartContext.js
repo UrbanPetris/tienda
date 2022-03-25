@@ -46,9 +46,9 @@ export const CartContextProvider = ({ children }) => {
     setCart(cart.filter((product) => product.id !== id));
   };
 
-  const removeProducts = (productstoremove) => {
+  const removeProducts = (productsToRemove) => {
     setCart(
-      cart.filter((ct) => productstoremove.every((pr) => pr.id !== ct.id))
+      cart.filter((ct) => productsToRemove.every((pr) => pr.id !== ct.id))
     );
   };
 
