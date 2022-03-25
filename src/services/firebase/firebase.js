@@ -105,3 +105,7 @@ export const getCategories = () => {
       });
   });
 };
+
+export const getDate = () => {
+  return Timestamp.fromDate(new Date());
+};

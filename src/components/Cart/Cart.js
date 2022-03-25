@@ -7,11 +7,11 @@ import { CartXFill, CartCheck, EmojiSunglasses } from "react-bootstrap-icons";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
 import { Link, useNavigate } from "react-router-dom";
-import { Timestamp } from "firebase/firestore";
 import {
   addOrder,
   getProductsInOrder,
   batch,
+  getDate,
 } from "../../services/firebase/firebase";
 import "./Cart.css";
 
@@ -22,7 +22,7 @@ const Cart = () => {
   const { cart, clearCart, getTotal, removeProducts } = useContext(CartContext); //Hacer un export useContext en CartContext como está para SetNotification así alivio Webpack
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotification();
-  const { contact, contactformvalidated } = useContactForm();
+  const { contact, contactFormValidated } = useContactForm();
 
   let navigate = useNavigate();
 
@@ -37,14 +37,14 @@ const Cart = () => {
   }, [contactDataMissing, orderConfirmed]);
 
   const confirmOrder = () => {
-    if (contactformvalidated) {
+    if (contactFormValidated) {
       setProcessingOrder(true);
 
       const objOrder = {
         buyer: contact,
         items: cart,
         total: getTotal(),
-        date: Timestamp.fromDate(new Date()),
+        date: getDate(),
       };
       const outOfStock = [];
       const ids = objOrder.items.map((i) => i.id);
