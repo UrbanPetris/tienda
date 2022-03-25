@@ -7,16 +7,14 @@
     margin: 0 auto;
 }
 
-.itemDetail {
-    /* transition: all 0.5s; */
+.item-detail {
     color: green;
     text-decoration: none
 }
 
-.itemDetail:hover {
+.item-detail:hover {
     font-weight: 800;
     color: green;
-
     transform: scale(0.9);
     text-decoration: none
 }

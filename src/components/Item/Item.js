@@ -12,7 +12,7 @@ const Item = ({ product }) => {
           <Card.Title>{product.name}</Card.Title>
           <Card.Text>
             {" "}
-            <NavLink className="itemDetail" to={`/item/${product.id}`}>
+            <NavLink className="item-detail" to={`/item/${product.id}`}>
               Ver detalle
             </NavLink>
           </Card.Text>
