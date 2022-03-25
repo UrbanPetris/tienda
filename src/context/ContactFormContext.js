@@ -11,7 +11,7 @@ export const ContactFormProvider = ({ children }) => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [comment, setComment] = useState("");
-  const [contactformvalidated, setContactFormValidated] = useState(false);
+  const [contactFormValidated, setContactFormValidated] = useState(false);
 
   const contact = {
     name: name,
@@ -34,7 +34,7 @@ export const ContactFormProvider = ({ children }) => {
         setAddress,
         comment,
         setComment,
-        contactformvalidated,
+        contactFormValidated,
         setContactFormValidated,
         contact,
       }}

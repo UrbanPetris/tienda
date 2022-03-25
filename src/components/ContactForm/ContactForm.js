@@ -18,14 +18,14 @@ const ContactForm = () => {
     setAddress,
     comment,
     setComment,
-    contactformvalidated,
+    contactFormValidated,
     setContactFormValidated,
   } = useContactForm();
 
   const { setNotification, setMessageBackground } = useNotification();
 
-  const [toggledisableddatos, setToggleDisabledDatos] = useState(true);
-  const [disablesubmit, setDisableSubmit] = useState(true);
+  const [toggleDisabledDatos, setToggleDisabledDatos] = useState(true);
+  const [disableSubmit, setDisableSubmit] = useState(true);
 
   useEffect(() => {
     if (name !== "" && lastname !== "" && phone !== "" && address !== "") {
@@ -54,14 +54,14 @@ const ContactForm = () => {
               <Card.Body>
                 <Form
                   noValidate
-                  validated={contactformvalidated}
+                  validated={contactFormValidated}
                   onSubmit={handleSubmit}
                 >
                   <Card.Title>Datos de Contacto</Card.Title>
                   <Form.Group as={Col} controlId="name">
                     <Form.Label>Nombre/s</Form.Label>
                     <Form.Control
-                      disabled={toggledisableddatos}
+                      disabled={toggleDisabledDatos}
                       required
                       type="text"
                       placeholder="Nombre/s"
@@ -72,7 +72,7 @@ const ContactForm = () => {
                   <Form.Group as={Col} controlId="lastname">
                     <Form.Label>Apellido/s</Form.Label>
                     <Form.Control
-                      disabled={toggledisableddatos}
+                      disabled={toggleDisabledDatos}
                       required
                       type="text"
                       placeholder="Apellido/s"
@@ -83,7 +83,7 @@ const ContactForm = () => {
                   <Form.Group as={Col} controlId="phone">
                     <Form.Label>Teléfono de Contacto</Form.Label>
                     <Form.Control
-                      disabled={toggledisableddatos}
+                      disabled={toggleDisabledDatos}
                       required
                       type="text"
                       placeholder="+54911..."
@@ -94,7 +94,7 @@ const ContactForm = () => {
                   <Form.Group as={Col} controlId="address">
                     <Form.Label>Dirección de Facturación</Form.Label>
                     <Form.Control
-                      disabled={toggledisableddatos}
+                      disabled={toggleDisabledDatos}
                       required
                       type="text"
                       placeholder="Calle Número, Localidad, Provincia, País"
@@ -105,7 +105,7 @@ const ContactForm = () => {
                   <Form.Group as={Col} controlId="comment">
                     <Form.Label>Comentarios</Form.Label>
                     <Form.Control
-                      disabled={toggledisableddatos}
+                      disabled={toggleDisabledDatos}
                       as="textarea"
                       rows={3}
                       placeholder="Agregue un comentario o aclaración a su pedido"
@@ -118,7 +118,7 @@ const ContactForm = () => {
                     className="justify-content-center pt-2"
                   >
                     <Button
-                      disabled={disablesubmit}
+                      disabled={disableSubmit}
                       style={{ width: "auto" }}
                       variant="success"
                       type="submit"
@@ -129,7 +129,7 @@ const ContactForm = () => {
                           fontSize: "30px",
                         }}
                       />
-                      {contactformvalidated
+                      {contactFormValidated
                         ? "Actualizar datos"
                         : "Confirmar datos"}{" "}
                     </Button>
@@ -137,7 +137,7 @@ const ContactForm = () => {
                       variant="info"
                       style={{ width: "auto" }}
                       onClick={() => {
-                        setToggleDisabledDatos(!toggledisableddatos);
+                        setToggleDisabledDatos(!toggleDisabledDatos);
                       }}
                     >
                       <FaEdit
