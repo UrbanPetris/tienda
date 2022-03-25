@@ -28,14 +28,8 @@ const ItemDetailContainer = () => {
       });
   }, [productId]);
 
-  const estiloContainer = {
-    // minHeight: "92vh",
-    // display: "flex",
-    // flexDirection: "column",
-  };
-
   return (
-    <Container fluid style={estiloContainer}>
+    <Container fluid>
       {loading && product ? (
         <Spinner animation="grow" />
       ) : (
