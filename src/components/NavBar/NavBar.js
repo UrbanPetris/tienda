@@ -46,14 +46,12 @@ const NavBar = () => {
             <Offcanvas.Title id="tiendaNavbarLabel"></Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
-            <Nav
-              style={{ alignItems: "center" }} //por default pone los child items en stretch y puede dificultar UX
-            >
+            <Nav style={{ alignItems: "center" }}>
               <NavLink
                 onClick={handleClose}
                 to={"/"}
-                className={
-                  ({ isActive }) => (isActive ? "ActiveOption" : "Option") //cambiar
+                className={({ isActive }) =>
+                  isActive ? "ActiveOption" : "Option"
                 }
               >
                 Home
@@ -74,8 +72,8 @@ const NavBar = () => {
               <NavLink
                 onClick={handleClose}
                 to={"/contactform"}
-                className={
-                  ({ isActive }) => (isActive ? "ActiveOption" : "Option") //cambiar
+                className={({ isActive }) =>
+                  isActive ? "ActiveOption" : "Option"
                 }
               >
                 Datos de Contacto
