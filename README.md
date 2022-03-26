@@ -17,11 +17,11 @@ La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado 
 - Formulario de contacto
 - Notificaciones que guían el procedimiento de compra
 - Utilización de routing para acceder por URL a ciertos contenidos:
-  - /
-  - /category/:categoryId
-  - /item/:productId
-  - /Cart
-  - /contactform
+  - / (home con lista de todos los productos)
+  - /category/:categoryId (lista de productos filtrada por id de categoría)
+  - /item/:productId (detalle de producto filtrado por id)
+  - /Cart (carrito de compras)
+  - /contactform (formulario de contacto)
 
 ## Herramientas empleadas
 
