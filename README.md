@@ -6,13 +6,22 @@ Este repositorio contiene todos los archivos necesarios para clonar el proyecto 
 
 ## Acerca de la aplicación
 
-La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado "Argentina 360". En el mismo se pueden visualizar distintos tipos de productos turísticos filtrando por varias categorías y obtener luego detalles de alguno en particular.
+La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado "Argentina 360". En el mismo se pueden visualizar distintos tipos de productos turísticos filtrando por varias categorías y obtener luego detalles de alguno en particular. Para proceder con la compra se debe llenar un pequeño formulario de contacto. Una vez chequeada la orden de compra con el stock actual existente en la base de datos se emite un id de confirmación.
 
 ## Contenidos
 
 - Barra de navegación con brand, carrito y apertura de menún off-canvas.
-- Contenedor con tarjetas que simulan la oferta turística
+- Contenedor con tarjetas que simulan la oferta turística.
 - Contenedor con tarjeta que simula el detalle de un producto específico
+- Carrito con detalles de compra
+- Formulario de contacto
+- Notificaciones que guían el procedimiento de compra
+- Utilización de routing para acceder por URL a ciertos contenidos:
+  - /
+  - /category/:categoryId
+  - /item/:productId
+  - /Cart
+  - /contactform
 
 ## Herramientas empleadas
 
