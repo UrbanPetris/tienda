@@ -1,4 +1,4 @@
-import Container from "../../../node_modules/react-bootstrap/Container/";
+import { Container, Row, Col } from "../../../node_modules/react-bootstrap/";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
@@ -36,7 +36,18 @@ const ItemListContainer = () => {
           <ItemList products={products}></ItemList>
         </>
       ) : (
-        <h1>¡No hay productos!</h1>
+        <Row className="pt-4" style={{ rowGap: 15 }}>
+          <Col xs={12} style={{ maxHeight: 600 }}>
+            <img
+              src="../img/empty_cart.png"
+              alt="empty_cart"
+              style={{ maxWidth: "100%", maxHeight: "100%" }}
+            ></img>
+          </Col>
+          <Col xs={12}>
+            <h1>¡No hay productos!</h1>
+          </Col>
+        </Row>
       )}
     </Container>
   );
