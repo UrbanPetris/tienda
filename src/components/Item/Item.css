@@ -1,20 +1,33 @@
 .card-img-top {
-    max-height: 250px;
+    cursor: pointer;
+}
+
+.img-wraper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-wraper:hover {
+    -webkit-filter: brightness(60%);
+    transition: all 0.5s ease-out;
+}
+
+.img-wraper .img-detail {
+    position: absolute;
+    visibility: hidden;
+    font-size: 25px;
+    text-shadow: 2px 0px black;
+    color: white;
+    pointer-events: none;
+}
+
+.img-wraper:hover .img-detail {
+    visibility: visible;
 }
 
 .card {
     max-width: 408px;
     margin: 0 auto;
-}
-
-.item-detail {
-    color: green;
-    text-decoration: none
-}
-
-.item-detail:hover {
-    font-weight: 700;
-    color: green;
-    transform: scale(0.9);
-    text-decoration: none
 }
