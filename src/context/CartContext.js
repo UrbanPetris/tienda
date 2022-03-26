@@ -8,19 +8,9 @@ export const useCart = () => {
 };
 
 export const CartContextProvider = ({ children }) => {
-  // const cartState =
-  //   localStorage.cart != undefined
-  //     ? JSON.parse(localStorage.getItem("cart"))
-  //     : [];
-
-  // const [cart, setCart] = useState(cartState);
   const [cart, setCart] = useLocalStorage("cart", []);
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotification();
-
-  // useEffect(() => {
-  //   localStorage.setItem("cart", JSON.stringify(cart));
-  // }, [cart]);
 
   const addToCart = (item, quantity) => {
     setMessageWidth("item");
