@@ -19,7 +19,10 @@ La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado 
 La aplicación además de React 17.0.2 utiliza las siguientes tecnologías y herramientas de uso libre:
 
 - [React-Bootstrap] - front-end framework implementado con componentes de React. Permite un rápido enmaquetado y diseño adaptable a dispositivos móbiles. El hecho de que sea a través de componentes hace más fácil el mantenimiento y reutilización del código.
-- [React-Icons] - repositorios de íconos para ser usados como componentes de React.
+- [React-Icons] - repositorio de íconos para ser usados como componentes de React.
+- [React-Dom] - provee métodos específicos para la manipulación del DOM.
+- [React-Router-Dom] - colección de componentes de navegación para implementación de ruteo
+- [Firebase] - plataforma cloud de desarrollo de aplicaciones que provee, entre otras cosas, Backend-as-a-Service
 
 ## Instalación
 
@@ -53,7 +56,7 @@ Y un sistema de carpetas y archivos como el siguiente:
 
 ## Configuración
 
-El backend de la app se apoya en los servicios provistos por la plataforma cloud Firebase de Google por lo que para el funcionamiento de la misma se necesita crear un proyecto, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
+El backend de la app se apoya en los servicios provistos por Firebase por lo que para el funcionamiento de la misma se necesita crear un proyecto en ella, desarrollar una base de datos documental y luego configurar las variables de entorno en un archivo .env en el root de la app. A continuación se muestra el procedimiento:
 
 Crear un proyecto con el nombre que desee:
 
@@ -105,3 +108,6 @@ MIT
 
 [react-bootstrap]: https://react-bootstrap.github.io/
 [react-icons]: https://react-icons.github.io/react-icons
+[react-dom]: https://reactjs.org/docs/react-dom.html
+[react-router-dom]: https://reactrouter.com/
+[firebase]: https://firebase.google.com/
