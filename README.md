@@ -71,7 +71,7 @@ El backend de la app se apoya en los servicios provistos por Firebase por lo que
 
 Crear un proyecto con el nombre que desee:
 
-<img src="readme-img/createproject.JPG" width="500">
+<img src="tienda/readme-img/createproject.JPG" width="500">
 
 No es necesario habilitar Google Analytics:
 
