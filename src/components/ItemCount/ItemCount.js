@@ -22,35 +22,45 @@ const ItemCount = (props) => {
 
   return (
     <>
-      <Col>
-        <div className="item-counter-container">
-          <Button variant="outline-success" onClick={decrement}>
-            -
+      {stock > 1 ? (
+        <>
+          <Col>
+            <div className="item-counter-container">
+              <Button variant="outline-success" onClick={decrement}>
+                -
+              </Button>
+              <div>{quantity}</div>
+              <Button variant="outline-success" onClick={increment}>
+                +
+              </Button>{" "}
+            </div>
+          </Col>
+          <Col>
+            {" "}
+            <Button
+              variant="outline-success"
+              onClick={() => {
+                onAdd(quantity);
+              }}
+              disabled={quantity > 0 ? false : true}
+            >
+              <BsCartPlusFill
+                style={{
+                  paddingRight: "10px",
+                  fontSize: "30px",
+                }}
+              />
+              <span>Agregar al carrito </span>
+            </Button>{" "}
+          </Col>
+        </>
+      ) : (
+        <Col>
+          <Button variant="outline-danger" disabled>
+            No hay stock
           </Button>
-          <div>{quantity}</div>
-          <Button variant="outline-success" onClick={increment}>
-            +
-          </Button>{" "}
-        </div>
-      </Col>
-      <Col>
-        {" "}
-        <Button
-          variant="outline-success"
-          onClick={() => {
-            onAdd(quantity);
-          }}
-          disabled={quantity > 0 ? false : true}
-        >
-          <BsCartPlusFill
-            style={{
-              paddingRight: "10px",
-              fontSize: "30px",
-            }}
-          />
-          <span>Agregar al carrito </span>
-        </Button>{" "}
-      </Col>
+        </Col>
+      )}
     </>
   );
 };
