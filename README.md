@@ -19,6 +19,7 @@ La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado 
 La aplicación además de React 17.0.2 utiliza las siguientes tecnologías y herramientas de uso libre:
 
 - [React-Bootstrap] - front-end framework implementado con componentes de React. Permite un rápido enmaquetado y diseño adaptable a dispositivos móbiles. El hecho de que sea a través de componentes hace más fácil el mantenimiento y reutilización del código.
+- [React-Icons] - repositorios de íconos para ser usados como componentes de React.
 
 ## Instalación
 
@@ -47,7 +48,7 @@ Y un sistema de carpetas y archivos como el siguiente:
   - App.js
   - App.css
   - /components (js/jsx y css para la renderización y funcionalidad de los componentes de App)
-  - /services (js del backend de Firebase)
+  - /services (js del backend de Firebase y una función para setear localStorage)
   - /context (js/jsx que hacen a la configuración de los distintos contextos necesarios para el funcionamiento de la app)
 
 ## Configuración
@@ -103,3 +104,4 @@ MIT
 **Todo el material audiovisual de este sitio ha sido obtenido de la web.**
 
 [react-bootstrap]: https://react-bootstrap.github.io/
+[react-icons]: https://react-icons.github.io/react-icons
