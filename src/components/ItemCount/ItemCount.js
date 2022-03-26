@@ -29,7 +29,9 @@ const ItemCount = (props) => {
               <Button variant="outline-success" onClick={decrement}>
                 -
               </Button>
-              <div>{quantity}</div>
+              <div>
+                {quantity} de {stock}
+              </div>
               <Button variant="outline-success" onClick={increment}>
                 +
               </Button>{" "}
