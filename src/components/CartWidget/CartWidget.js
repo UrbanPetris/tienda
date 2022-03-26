@@ -1,12 +1,11 @@
 import { Cart } from "react-bootstrap-icons";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import Notification from "../Notification/Notification";
 import "./CartWidget.css";
 
 const CartWidget = () => {
-  const { getQuantity } = useContext(CartContext);
+  const { getQuantity } = useCart();
 
   const cartWidgetContainer = {
     display: "flex",

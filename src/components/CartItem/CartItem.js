@@ -1,12 +1,11 @@
 import { X } from "react-bootstrap-icons";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./CartItem.css";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import { Col, Row } from "../../../node_modules/react-bootstrap/";
 
 const CartItem = ({ product }) => {
-  const { removeProduct } = useContext(CartContext);
+  const { removeProduct } = useCart();
   const subtotal = product.price * product.quantity;
 
   return (

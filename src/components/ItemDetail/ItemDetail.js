@@ -6,14 +6,14 @@ import Col from "../../../node_modules/react-bootstrap/Col/";
 import Row from "../../../node_modules/react-bootstrap/Row/";
 import { Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
+import { useState } from "react";
+import { useCart } from "../../context/CartContext";
 import Button from "../../../node_modules/react-bootstrap/Button";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ product }) => {
   const [quantityToBuy, setQuantityToBuy] = useState(0);
-  const { addToCart } = useContext(CartContext);
+  const { addToCart } = useCart();
 
   const handleAdd = (quantity) => {
     setQuantityToBuy(quantity);

@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useContactForm } from "../../context/ContactFormContext";
 import { useNotification } from "../../context/NotificationContext";
 import { Container, Row, Col } from "../../../node_modules/react-bootstrap/";
 import Button from "../../../node_modules/react-bootstrap/Button";
 import { CartXFill, CartCheck, EmojiSunglasses } from "react-bootstrap-icons";
-import { CartContext } from "../../context/CartContext";
+import { useCart } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -19,7 +19,7 @@ const Cart = () => {
   const [processingOrder, setProcessingOrder] = useState(false);
   const [orderConfirmed, setOrderConfirmed] = useState(false);
   const [contactDataMissing, setContactDataMissing] = useState(false);
-  const { cart, clearCart, getTotal, removeProducts } = useContext(CartContext); //Hacer un export useContext en CartContext como está para SetNotification así alivio Webpack
+  const { cart, clearCart, getTotal, removeProducts } = useCart();
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotification();
   const { contact, contactFormValidated } = useContactForm();

@@ -1,7 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 import { useNotification } from "./NotificationContext";
 
-export const CartContext = createContext();
+const CartContext = createContext();
+export const useCart = () => {
+  return useContext(CartContext);
+};
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
