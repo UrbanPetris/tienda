@@ -32,6 +32,7 @@ const ContactForm = () => {
       setDisableSubmit(false);
     } else {
       setDisableSubmit(true);
+      setContactFormValidated(false);
     }
   }, [name, lastName, phone, address]);
 
