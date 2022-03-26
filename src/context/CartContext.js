@@ -1,6 +1,6 @@
 import { createContext, useContext } from "react";
 import { useNotification } from "./NotificationContext";
-import { useLocalStorage } from "../services/firebase/useLocalStorage";
+import { useLocalStorage } from "../services/localStorage/useLocalStorage";
 
 const CartContext = createContext();
 export const useCart = () => {
