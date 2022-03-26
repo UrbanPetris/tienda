@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 import { useNotification } from "./NotificationContext";
 
 const CartContext = createContext();
@@ -7,9 +7,18 @@ export const useCart = () => {
 };
 
 export const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const cartState =
+    localStorage.cart != undefined
+      ? JSON.parse(localStorage.getItem("cart"))
+      : [];
+
+  const [cart, setCart] = useState(cartState);
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotification();
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (item, quantity) => {
     setMessageWidth("item");
