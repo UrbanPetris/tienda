@@ -71,7 +71,7 @@ El backend de la app se apoya en los servicios provistos por Firebase por lo que
 
 Crear un proyecto con el nombre que desee:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject.JPG?raw=true" width="500">
+<img src="readme-img\createproject.JPG" width="500">
 
 No es necesario habilitar Google Analytics:
 
