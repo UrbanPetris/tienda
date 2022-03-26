@@ -23,6 +23,8 @@ La aplicación "Tienda" simula un e-commerce de turismo en Argentina denominado 
   - /Cart (carrito de compras)
   - /contactform (formulario de contacto)
 
+![sample](./sample.gif)
+
 ## Herramientas empleadas
 
 La aplicación además de React 17.0.2 utiliza las siguientes tecnologías y herramientas de uso libre:
