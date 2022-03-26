@@ -75,41 +75,41 @@ Crear un proyecto con el nombre que desee:
 
 No es necesario habilitar Google Analytics:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/createproject2.JPG?raw=true" width="500">
+<img src="readme-img/createproject2.JPG" width="500">
 
 Crear una base de datos en modo productivo:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase.JPG?raw=true" width="500">
+<img src="readme-img/createdatabase.JPG" width="500">
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/createdatabase2.JPG?raw=true" width="500">
+<img src="readme-img/createdatabase2.JPG" width="500">
 
 Comenzar una nueva colección que deberá llamarse _products_
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection.JPG?raw=true" width="500">
+<img src="readme-img/startcollection.JPG" width="500">
 
 Completar los productos con las siguientes fields/keys (_categoryId_, _categoryDescription_, _description_, _img_ _name_, _price_, _stock_). Todas deben ser del tipo texto salvo las últimas dos. Se recomienda que el primer field/key correspondiente al id se genere automáticamente:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection2.JPG?raw=true" width="500">
+<img src="readme-img/startcollection2.JPG" width="500">
 
-![startcollection3](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection3.JPG?raw=true)
+![startcollection3](readme-img/startcollection3.JPG)
 
 El campo _categoryId_ debe contener el id de los documentos de la collection a crear de categories donde la key _description_ será el nombre que se incorporará al navbar:
 
-![startcollection4](https://github.com/UrbanPetris/tienda/blob/master/public/img/startcollection4.JPG?raw=true)
+![startcollection4](readme-img/startcollection4.JPG)
 
 Una vez hecho esto deben configurarse las variables de entorno en un archivo .env que deberá ubicarse en el root de la app. Para ello antes se deberá registrar una app (en este caso, web) al proyecto de Firebase:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp.JPG?raw=true" width="500">
+<img src="readme-img/firebaseapp.JPG" width="500">
 
 No es necesario configurar hosting:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp2.JPG?raw=true" width="400">
+<img src="readme-img/firebaseapp2.JPG" width="400">
 
 Respecto al software development kit, se indica que es necesario instalar Firebase en npm (ya incluído en las dependencias en package.json) e inicializar Firebase en un archivo javascript. Aquí sólo interesa adaptar la configuración de Firebase en un entorno de variables local:
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/firebaseapp3.JPG?raw=true" width="600">
+<img src="readme-img/firebaseapp3.JPG" width="600">
 
-<img src="https://github.com/UrbanPetris/tienda/blob/master/public/img/env.JPG?raw=true" width="600">
+<img src="readme-img/env.JPG" width="600">
 
 ## Licencia
 
