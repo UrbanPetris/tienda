@@ -24,10 +24,8 @@ const ContactForm = () => {
 
   const { setNotification, setMessageBackground } = useNotification();
 
-  const [toggleDisabledDatos, setToggleDisabledDatos] = useState(true);
+  const [toggleDisabledDatos, setToggleDisabledDatos] = useState(false);
   const [disableSubmit, setDisableSubmit] = useState(true);
-
-  const nameHolder = "";
 
   useEffect(() => {
     if ([name, lastName, phone, address].every((v) => v !== "")) {
