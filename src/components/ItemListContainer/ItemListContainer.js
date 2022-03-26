@@ -7,16 +7,13 @@ import { useNotification } from "../../context/NotificationContext";
 import { getProducts } from "../../services/firebase/firebase";
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]); //tengo que inicializar el estado con un array si no el método de array de map en ItemList se rompe
+  const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
   const [loading, setLoading] = useState(true);
   const { setNotification, setMessageBackground } = useNotification();
 
   useEffect(() => {
-    //este products está dentro del scope de la callback de useEffects
-    //el useEffect se ejecuta después de que se renderice el componente con el return
-    setLoading(true); //cada vez que cambia de estado el categoryId se vuelve a ejecutar este setLoading(true) para simular el loading del componente
-
+    setLoading(true);
     getProducts(categoryId)
       .then((response) => {
         setProducts(response);
