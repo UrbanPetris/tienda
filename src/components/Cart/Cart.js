@@ -3,7 +3,11 @@ import { useContactForm } from "../../context/ContactFormContext";
 import { useNotification } from "../../context/NotificationContext";
 import { Container, Row, Col } from "../../../node_modules/react-bootstrap/";
 import Button from "../../../node_modules/react-bootstrap/Button";
-import { CartXFill, CartCheck, EmojiSunglasses } from "react-bootstrap-icons";
+import {
+  BsFillCartXFill,
+  BsCartCheck,
+  BsEmojiSunglasses,
+} from "react-icons/bs";
 import { useCart } from "../../context/CartContext";
 import CartItem from "../CartItem/CartItem";
 import { Link, useNavigate } from "react-router-dom";
@@ -160,7 +164,7 @@ const Cart = () => {
           <Col xs={12}>
             <Link to={"/"}>
               <Button variant="outline-success">
-                <EmojiSunglasses
+                <BsEmojiSunglasses
                   style={{
                     paddingRight: "10px",
                     fontSize: "30px",
@@ -189,7 +193,7 @@ const Cart = () => {
                 variant="danger"
                 onClick={() => clearCart()}
               >
-                <CartXFill size={35}></CartXFill>
+                <BsFillCartXFill size={35}></BsFillCartXFill>
                 <span>Cancelar compra</span>
               </Button>
               <Button
@@ -197,7 +201,7 @@ const Cart = () => {
                 variant="success"
                 onClick={() => confirmOrder()}
               >
-                <CartCheck size={35}></CartCheck>{" "}
+                <BsCartCheck size={35}></BsCartCheck>{" "}
                 <span>
                   {" "}
                   {processingOrder ? "Procesando…" : "Confirmar compra"}

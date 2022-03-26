@@ -1,6 +1,6 @@
 import ItemCount from "../ItemCount/ItemCount";
-import { Cart, EmojiSunglasses } from "react-bootstrap-icons";
 import { BiLandscape } from "react-icons/bi";
+import { BsEmojiSunglasses, BsCart } from "react-icons/bs";
 import Card from "../../../node_modules/react-bootstrap/Card";
 import Col from "../../../node_modules/react-bootstrap/Col/";
 import Row from "../../../node_modules/react-bootstrap/Row/";
@@ -67,7 +67,7 @@ const ItemDetail = ({ product }) => {
                   <Col sm={4}>
                     <Link to={"/"}>
                       <Button variant="outline-success">
-                        <EmojiSunglasses
+                        <BsEmojiSunglasses
                           style={{
                             paddingRight: "10px",
                             fontSize: "30px",
@@ -80,7 +80,7 @@ const ItemDetail = ({ product }) => {
                   <Col sm={4}>
                     <Link to={"/Cart"}>
                       <Button variant="outline-success">
-                        <Cart
+                        <BsCart
                           style={{
                             paddingRight: "10px",
                             fontSize: "30px",

@@ -1,4 +1,4 @@
-import { Cart } from "react-bootstrap-icons";
+import { BsCart } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import Notification from "../Notification/Notification";
@@ -14,7 +14,6 @@ const CartWidget = () => {
     alignItems: "center",
     textDecoration: "none",
     position: "relative",
-    // visibility: getQuantity() === 0 ? "hidden" : "visible",
   };
 
   const cartIcon = {
@@ -24,26 +23,9 @@ const CartWidget = () => {
     visibility: getQuantity() === 0 ? "hidden" : "visible",
   };
 
-  //problemas... por algún motivo React renderiza el número en cualquier lado
-  const cartWidgetCounter = {
-    float: "right",
-    textAlign: "center",
-    borderRadius: "50%",
-    backgroundColor: "#9ed699",
-    boxShadow: "0px 0px 9px 3px #3e533c",
-    color: "white",
-    width: 20,
-    height: 20,
-    lineHeight: 20,
-    fontSize: "1rem",
-    position: "absolute",
-    left: 19,
-    top: -21,
-  };
-
   return (
     <Link to={"/Cart"} style={cartWidgetContainer}>
-      <Cart style={cartIcon} />
+      <BsCart style={cartIcon} />
       <div
         style={{ visibility: getQuantity() === 0 ? "hidden" : "visible" }}
         className="cart-widget-counter"

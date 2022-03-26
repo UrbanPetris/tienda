@@ -2,7 +2,7 @@ import "./ItemCount.css";
 import Button from "../../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 import Col from "../../../node_modules/react-bootstrap/Col/";
-import { CartPlusFill } from "react-bootstrap-icons";
+import { BsCartPlusFill } from "react-icons/bs";
 
 const ItemCount = (props) => {
   const { stock, initial, onAdd } = props;
@@ -42,7 +42,7 @@ const ItemCount = (props) => {
           }}
           disabled={quantity > 0 ? false : true}
         >
-          <CartPlusFill
+          <BsCartPlusFill
             style={{
               paddingRight: "10px",
               fontSize: "30px",

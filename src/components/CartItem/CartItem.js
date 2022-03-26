@@ -1,4 +1,4 @@
-import { X } from "react-bootstrap-icons";
+import { BsX } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "./CartItem.css";
 import { useCart } from "../../context/CartContext";
@@ -11,11 +11,11 @@ const CartItem = ({ product }) => {
   return (
     <Row className="item" key={product.id} product={product}>
       <Col md={1} title="Quitar producto">
-        <X
+        <BsX
           style={{ cursor: "pointer" }}
           size={35}
           onClick={() => removeProduct(product.id)}
-        ></X>
+        ></BsX>
       </Col>
       <Col md={4} className="cart-item-image">
         <Link to={`/item/${product.id}`} title="Ir al producto">
