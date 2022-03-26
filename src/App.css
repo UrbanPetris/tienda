@@ -51,23 +51,3 @@
   top: 50%;
   transform: translate(0, -50%)
 }
-
-
-
-.fade-enter {
-  opacity: 0;
-  z-index: 1;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 50s ease-out
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0;
-}
