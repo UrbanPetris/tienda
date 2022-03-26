@@ -27,6 +27,8 @@ const ContactForm = () => {
   const [toggleDisabledDatos, setToggleDisabledDatos] = useState(true);
   const [disableSubmit, setDisableSubmit] = useState(true);
 
+  const nameHolder = "";
+
   useEffect(() => {
     if ([name, lastName, phone, address].every((v) => v !== "")) {
       setDisableSubmit(false);
@@ -118,37 +120,38 @@ const ContactForm = () => {
                     style={{ columnGap: 20 }}
                     className="justify-content-center pt-2"
                   >
-                    <Button
-                      disabled={disableSubmit}
-                      style={{ width: "auto" }}
-                      variant="success"
-                      type="submit"
-                    >
-                      <GrContactInfo
-                        style={{
-                          paddingRight: "10px",
-                          fontSize: "30px",
+                    {contactFormValidated ? (
+                      <Button
+                        variant="info"
+                        style={{ width: "auto" }}
+                        onClick={() => {
+                          setToggleDisabledDatos(!toggleDisabledDatos);
                         }}
-                      />
-                      {contactFormValidated
-                        ? "Actualizar datos"
-                        : "Confirmar datos"}{" "}
-                    </Button>
-                    <Button
-                      variant="info"
-                      style={{ width: "auto" }}
-                      onClick={() => {
-                        setToggleDisabledDatos(!toggleDisabledDatos);
-                      }}
-                    >
-                      <FaEdit
-                        style={{
-                          paddingRight: "10px",
-                          fontSize: "30px",
-                        }}
-                      />
-                      Editar datos
-                    </Button>
+                      >
+                        <FaEdit
+                          style={{
+                            paddingRight: "10px",
+                            fontSize: "30px",
+                          }}
+                        />
+                        Editar datos
+                      </Button>
+                    ) : (
+                      <Button
+                        disabled={disableSubmit}
+                        style={{ width: "auto" }}
+                        variant="success"
+                        type="submit"
+                      >
+                        <GrContactInfo
+                          style={{
+                            paddingRight: "10px",
+                            fontSize: "30px",
+                          }}
+                        />
+                        Confirmar datos
+                      </Button>
+                    )}
                   </Row>
                 </Form>
               </Card.Body>
