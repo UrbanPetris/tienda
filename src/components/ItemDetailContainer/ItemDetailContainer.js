@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
   const { setNotification, setMessageBackground } = useNotification();
 
   useEffect(() => {
-    setLoading(true); //cada vez que cambia de estado el productId se vuelve a ejecutar este setLoading(true) para simular el loading del componente
+    setLoading(true);
 
     getProductById(productId)
       .then((response) => {
