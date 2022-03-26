@@ -1,5 +1,6 @@
-import { createContext, useState, useContext, useEffect } from "react";
+import { createContext, useContext } from "react";
 import { useNotification } from "./NotificationContext";
+import { useLocalStorage } from "../services/firebase/useLocalStorage";
 
 const CartContext = createContext();
 export const useCart = () => {
@@ -7,18 +8,19 @@ export const useCart = () => {
 };
 
 export const CartContextProvider = ({ children }) => {
-  const cartState =
-    localStorage.cart != undefined
-      ? JSON.parse(localStorage.getItem("cart"))
-      : [];
+  // const cartState =
+  //   localStorage.cart != undefined
+  //     ? JSON.parse(localStorage.getItem("cart"))
+  //     : [];
 
-  const [cart, setCart] = useState(cartState);
+  // const [cart, setCart] = useState(cartState);
+  const [cart, setCart] = useLocalStorage("cart", []);
   const { setNotification, setMessageWidth, setMessageBackground } =
     useNotification();
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
+  // useEffect(() => {
+  //   localStorage.setItem("cart", JSON.stringify(cart));
+  // }, [cart]);
 
   const addToCart = (item, quantity) => {
     setMessageWidth("item");
