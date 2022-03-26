@@ -10,7 +10,7 @@ const ContactForm = () => {
   const {
     name,
     setName,
-    lastname,
+    lastName,
     setLastName,
     phone,
     setPhone,
@@ -28,12 +28,12 @@ const ContactForm = () => {
   const [disableSubmit, setDisableSubmit] = useState(true);
 
   useEffect(() => {
-    if (name !== "" && lastname !== "" && phone !== "" && address !== "") {
+    if ([name, lastName, phone, address].every((v) => v !== "")) {
       setDisableSubmit(false);
     } else {
       setDisableSubmit(true);
     }
-  }, [name, lastname, phone, address]);
+  }, [name, lastName, phone, address]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -69,14 +69,14 @@ const ContactForm = () => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </Form.Group>
-                  <Form.Group as={Col} controlId="lastname">
+                  <Form.Group as={Col} controlId="lastName">
                     <Form.Label>Apellido/s</Form.Label>
                     <Form.Control
                       disabled={toggleDisabledDatos}
                       required
                       type="text"
                       placeholder="Apellido/s"
-                      value={lastname}
+                      value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                     />
                   </Form.Group>
