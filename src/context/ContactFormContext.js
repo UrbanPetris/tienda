@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { useLocalStorage } from "../services/firebase/useLocalStorage";
+import { useLocalStorage } from "../services/localStorage/useLocalStorage";
 
 const ContactFormContext = createContext();
 export const useContactForm = () => {
